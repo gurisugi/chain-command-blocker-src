@@ -1,0 +1,31 @@
+version: 2
+
+builds:
+  - main: ./cmd/chain-command-blocker
+    binary: chain-command-blocker
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+      - -buildvcs=false
+    ldflags:
+      - -s -w
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: checksums.txt
+
+release:
+  use_existing_draft: true
+
+changelog:
+  disable: true
