@@ -1,5 +1,7 @@
 version: 2
 
+project_name: chain-command-blocker
+
 builds:
   - main: ./cmd/chain-command-blocker
     binary: chain-command-blocker
